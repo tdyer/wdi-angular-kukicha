@@ -9,12 +9,12 @@
         .controller('MainCtrl', MainCtrl);
 
     MainCtrl.$inject = ['$http'];
-    
+
     function MainCtrl($http) {
         var vm = this;
 
-        $http.get('http://localhost:3000/users').success(function(response) {
-            vm.users = response;
+        $http.get('http://localhost:3000/tasks').success(function(response) {
+            vm.tasks = response.tasks;
         });
     }
 
