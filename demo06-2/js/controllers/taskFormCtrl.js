@@ -3,11 +3,11 @@
 
   angular
     .module('TaskManager')
-    .controller('TaskCtrl', TaskCtrl);
+    .controller('TaskFormCtrl', TaskFormCtrl);
 
-  TaskCtrl.$inject = ['$http', 'TaskFactory'];
+  TaskFormCtrl.$inject = ['$http', 'TaskFactory'];
 
-  function TaskCtrl($http, TaskFactory){
+  function TaskFormCtrl($http, TaskFactory){
     var vm = this;
 
     vm.upsertTask = function(task){
@@ -18,14 +18,6 @@
                                            console.log('failed!!!');
                                            console.log(response);
                                          });
-    };
-
-    vm.deleteTask = function(task){
-      TaskFactory.deleteTask(task);
-    };
-
-    vm.editTask = function(task){
-      vm.task = task;
     };
 
     vm.resetTask = function(){
